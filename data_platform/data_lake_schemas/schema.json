@@ -1,0 +1,134 @@
+{
+  "schemas": {
+    "field_data": {
+      "type": "object",
+      "description": "Schema for agricultural field data",
+      "properties": {
+        "field_id": {
+          "type": "string",
+          "description": "Unique identifier for the field"
+        },
+        "field_name": {
+          "type": "string",
+          "description": "Name of the field"
+        },
+        "location": {
+          "type": "object",
+          "description": "Geographic location of the field",
+          "properties": {
+            "latitude": {
+              "type": "number",
+              "description": "Latitude coordinate"
+            },
+            "longitude": {
+              "type": "number",
+              "description": "Longitude coordinate"
+            }
+          },
+          "required": ["latitude", "longitude"]
+        },
+        "soil_data": {
+          "type": "object",
+          "description": "Soil characteristics data",
+          "properties": {
+            "soil_type": {
+              "type": "string",
+              "description": "Type of soil"
+            },
+            "ph_level": {
+              "type": "number",
+              "description": "pH level of soil"
+            },
+            "organic_matter": {
+              "type": "number",
+              "description": "Percentage of organic matter"
+            },
+            "nutrients": {
+              "type": "object",
+              "description": "Nutrient levels",
+              "properties": {
+                "nitrogen": {
+                  "type": "number",
+                  "description": "Nitrogen level"
+                },
+                "phosphorus": {
+                  "type": "number",
+                  "description": "Phosphorus level"
+                },
+                "potassium": {
+                  "type": "number",
+                  "description": "Potassium level"
+                }
+              }
+            }
+          }
+        },
+        "weather_data": {
+          "type": "object",
+          "description": "Weather data for the field",
+          "properties": {
+            "temperature": {
+              "type": "number",
+              "description": "Temperature in Celsius"
+            },
+            "humidity": {
+              "type": "number",
+              "description": "Humidity percentage"
+            },
+            "rainfall": {
+              "type": "number",
+              "description": "Rainfall in millimeters"
+            }
+          }
+        },
+        "crop_data": {
+          "type": "object",
+          "description": "Crop information",
+          "properties": {
+            "crop_type": {
+              "type": "string",
+              "description": "Type of crop"
+            },
+            "planting_date": {
+              "type": "string",
+              "format": "date",
+              "description": "Date of planting"
+            },
+            "expected_harvest_date": {
+              "type": "string",
+              "format": "date",
+              "description": "Expected harvest date"
+            }
+          }
+        },
+        "sensor_data": {
+          "type": "array",
+          "description": "Array of sensor readings",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sensor_id": {
+                "type": "string",
+                "description": "Unique identifier for the sensor"
+              },
+              "sensor_type": {
+                "type": "string",
+                "description": "Type of sensor"
+              },
+              "reading": {
+                "type": "number",
+                "description": "Sensor reading value"
+              },
+              "timestamp": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Time of sensor reading"
+              }
+            }
+          }
+        }
+      },
+      "required": ["field_id", "field_name", "location"]
+    }
+  }
+}
